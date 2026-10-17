@@ -13,7 +13,7 @@ def sigmoid(z):
 class MLPVisual:
     """Perceptrón multicapa 2-2-1 (sigmoide) entrenado con backpropagation."""
 
-    def __init__(self, learning_rate=1.0, epochs=6000, hidden=2, seed=1):
+    def __init__(self, learning_rate=5.0, epochs=800, hidden=2, seed=1):
         self.lr = learning_rate
         self.epochs = epochs
         rng = np.random.default_rng(seed)
@@ -74,7 +74,7 @@ class MLPVisual:
         ax.set_ylabel("X2")
         ax.legend(loc='upper right', fontsize=8)
 
-    def train_and_plot(self, X, y, title, plot_every=100):
+    def train_and_plot(self, X, y, title, plot_every=20):
         plt.ion()
         fig, ax = plt.subplots(figsize=(6, 6))
 
@@ -106,6 +106,6 @@ X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]], dtype=float)
 y_xor = np.array([0, 1, 1, 0])
 
 if __name__ == "__main__":
-    mlp = MLPVisual(learning_rate=1.0, epochs=6000, hidden=2, seed=1)
+    mlp = MLPVisual(learning_rate=5.0, epochs=800, hidden=2, seed=1)
     print("\nEjecutando visualización para COMPUERTA XOR con PERCEPTRÓN MULTICAPA...")
-    mlp.train_and_plot(X, y_xor, "Compuerta XOR - Perceptrón Multicapa (2-2-1)")
+    mlp.train_and_plot(X, y_xor, "Compuerta XOR - Perceptrón Multicapa (2-2-1)", plot_every=20)
